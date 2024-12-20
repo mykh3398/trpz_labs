@@ -16,11 +16,15 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class JSONSchema {
+public class FormattedJson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long jsonId;
-    private PostgreSQLJsonPGObjectJsonbType schemaData;
+    private Long formattedJsonId;
+    private PostgreSQLJsonPGObjectJsonbType formattedSchemaData;
+    private int is_active;
     @CreationTimestamp
     private LocalDateTime createdOn;
+
+    private Long FK_JsonId;
+    private Long FK_formatterId;
 }
