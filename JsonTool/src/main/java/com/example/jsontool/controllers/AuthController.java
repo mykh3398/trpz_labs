@@ -1,5 +1,6 @@
 package com.example.jsontool.controllers;
 
+
 import com.example.jsontool.service.UserService;
 import org.springframework.stereotype.Controller;
 
@@ -10,4 +11,6 @@ public class AuthController {
     public AuthController(UserService userService) {
         this.userService = userService;
     }
+
+
 }
