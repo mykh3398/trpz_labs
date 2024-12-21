@@ -12,4 +12,6 @@ public interface RawJsonService {
     RawJsonDto updateRawJson(Long rawJsonId, RawJsonDto updatedRawJson);
     void deleteRawJson(Long rawJsonId);
     String formatJson(RawJsonDto json, String formatType);
+    public String undoLastFormat();
+    public String redoLastFormat();
 }

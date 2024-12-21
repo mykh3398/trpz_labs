@@ -24,7 +24,6 @@ public class FormattedJson {
     private int is_active;
     @CreationTimestamp
     private LocalDateTime createdOn;
-
     private Long FK_JsonId;
     private Long FK_formatterId;
 }
