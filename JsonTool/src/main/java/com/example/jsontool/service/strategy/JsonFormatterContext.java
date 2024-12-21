@@ -3,7 +3,9 @@ package com.example.jsontool.service.strategy;
 import com.example.jsontool.dto.RawJsonDto;
 import com.example.jsontool.exceptions.InvalidJsonException;
 import com.example.jsontool.service.strategy.FormatterStrategy;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JsonFormatterContext {
     private FormatterStrategy formatterStrategy;
 

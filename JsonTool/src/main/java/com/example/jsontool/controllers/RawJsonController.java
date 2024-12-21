@@ -17,13 +17,25 @@ public class RawJsonController {
         this.rawJsonService = rawJsonService;
     }
     @PostMapping("/format/{type}")
-    public ResponseEntity<String> formatJsonPretty(@RequestBody RawJsonDto rawJsonDto, @PathVariable("type") String type) {
+    public ResponseEntity<String> formatJson(@RequestBody RawJsonDto rawJsonDto, @PathVariable("type") String type) {
         try {
             String formattedJson = rawJsonService.formatJson(rawJsonDto, type);
             return ResponseEntity.ok(formattedJson);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body("Invalid JSON input: " + e.getMessage());
         }
+    }
+
+    @PostMapping("/undo")
+    public ResponseEntity<String> undoLastChange() {
+        String json = rawJsonService.undoLastFormat();
+        return ResponseEntity.ok(json);
+    }
+
+    @PostMapping("/redo")
+    public ResponseEntity<String> redoLastChange() {
+        String json = rawJsonService.redoLastFormat();
+        return ResponseEntity.ok(json);
     }
     @PostMapping("/save")
     public ResponseEntity<RawJsonDto> createRawJson(@RequestBody RawJsonDto rawJsonDto) {

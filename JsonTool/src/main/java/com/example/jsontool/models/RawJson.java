@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Raw_Schema")
 public class RawJson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
