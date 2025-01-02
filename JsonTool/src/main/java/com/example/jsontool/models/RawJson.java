@@ -3,9 +3,13 @@ package com.example.jsontool.models;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.dialect.PostgreSQLJsonPGObjectJsonbType;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,9 +18,12 @@ import java.time.LocalDateTime;
 public class RawJson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long jsonId;
-    private String schemaName;
-    private String schemaData;
-    @CreationTimestamp
-    private LocalDateTime createdOn;
+    private Long rawId;
+
+
+    private String rawData;
+
+
+    private LocalDateTime rawCreatedOn;
 }
+

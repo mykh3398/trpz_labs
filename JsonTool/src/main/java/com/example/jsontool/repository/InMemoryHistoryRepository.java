@@ -1,6 +1,5 @@
-package com.example.jsontool.command.commandHistory;
+package com.example.jsontool.repository;
 
-import com.example.jsontool.command.commandHistory.HistoryEntry;
 import org.springframework.stereotype.Component;
 
 import java.util.Stack;
