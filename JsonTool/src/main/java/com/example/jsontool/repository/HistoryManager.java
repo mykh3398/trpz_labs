@@ -1,4 +1,4 @@
-package com.example.jsontool.command.commandHistory;
+package com.example.jsontool.repository;
 
 import org.springframework.stereotype.Component;
 
@@ -10,8 +10,8 @@ public class HistoryManager {
         this.repository = repository;
     }
 
-    public void addEntry(String rawJson, String formattedJson, String formatType) {
-        repository.save(new HistoryEntry(rawJson, formattedJson, formatType));
+    public void addEntry(String formattedJson, String formatType) {
+        repository.save(new HistoryEntry(formattedJson, formatType));
     }
 
     public void undoLastEntry() {

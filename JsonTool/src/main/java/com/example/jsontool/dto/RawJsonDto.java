@@ -11,10 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class RawJsonDto {
-    private Long jsonId;
-    //@NotEmpty(message = "Textarea shouldn't be empty")
-    private String schemaName;
-    //@NotEmpty(message = "Textarea shouldn't be empty")
-    private String schemaData;
-    private LocalDateTime createdOn;
+    private Long rawId;
+    private String rawData;
+    private LocalDateTime rawCreatedOn;
 }

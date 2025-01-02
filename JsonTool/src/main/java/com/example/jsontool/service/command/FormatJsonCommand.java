@@ -1,11 +1,11 @@
-package com.example.jsontool.command;
+package com.example.jsontool.service.command;
 
-import com.example.jsontool.command.commandHistory.HistoryEntry;
-import com.example.jsontool.command.commandHistory.HistoryManager;
+import com.example.jsontool.repository.HistoryManager;
 import com.example.jsontool.dto.RawJsonDto;
+import com.example.jsontool.service.strategy.FlatFormatterStrategy;
 import com.example.jsontool.service.strategy.JsonFormatterContext;
-import com.example.jsontool.service.strategy.strategyImplementations.FlatFormatterStrategy;
-import com.example.jsontool.service.strategy.strategyImplementations.PrettyFormatterStrategy;
+import com.example.jsontool.service.strategy.MarkdownFormatterStrategy;
+import com.example.jsontool.service.strategy.PrettyFormatterStrategy;
 
 public class FormatJsonCommand implements Command {
     private final RawJsonDto rawJsonDto;
@@ -30,12 +30,14 @@ public class FormatJsonCommand implements Command {
             case "pretty":
                 formatterContext.setFormatterStrategy(new PrettyFormatterStrategy());
                 break;
+            case "markdown":
+                formatterContext.setFormatterStrategy(new MarkdownFormatterStrategy());
+                break;
             default:
                 throw new IllegalArgumentException("Unknown format type: " + formatType);
         }
         result = formatterContext.format(rawJsonDto);
-        historyManager.addEntry(rawJsonDto.getSchemaData(), result, formatType);
+        historyManager.addEntry(result, formatType);
         return result;
     }
-
 }

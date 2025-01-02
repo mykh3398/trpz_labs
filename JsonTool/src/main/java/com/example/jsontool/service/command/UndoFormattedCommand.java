@@ -1,15 +1,14 @@
-package com.example.jsontool.command;
+package com.example.jsontool.service.command;
 
-import com.example.jsontool.command.Command;
-import com.example.jsontool.command.commandHistory.HistoryEntry;
-import com.example.jsontool.command.commandHistory.HistoryManager;
+import com.example.jsontool.repository.HistoryEntry;
+import com.example.jsontool.repository.HistoryManager;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UndoCommand implements Command {
+public class UndoFormattedCommand implements Command {
     private final HistoryManager historyManager;
 
-    public UndoCommand(HistoryManager historyManager) {
+    public UndoFormattedCommand(HistoryManager historyManager) {
         this.historyManager = historyManager;
     }
 
